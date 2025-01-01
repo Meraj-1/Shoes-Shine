@@ -1,0 +1,70 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Sixtyfour&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Vinyl&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap'); */
+
+
+@keyframes slider {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+* {
+  font-family: "Fira Sans", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.animate-slider {
+  display: flex;
+  gap: 1rem;
+  animation: slider 150s linear infinite;
+  width: max-content;
+}
+
+
+.Hero_Heading {
+font-family: "Playfair Display", serif;
+font-optical-sizing: auto;
+font-weight: 600;
+}
+
+/* // <uniquifier>: Use a unique and descriptive class name */
+
+.logo {
+  font-family: "Sixtyfour", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings:
+   "BLED" 73,
+    "SCAN" 45;
+}
+
+.Main {
+  font-family: "Rubik Vinyl", serif;
+  /* font-weight: 00; */
+  font-style: normal;
+}
+
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+
+.pro-name {
+  font-family: "Mulish", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
