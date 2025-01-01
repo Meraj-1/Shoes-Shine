@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+// import motion from "framer-motion"
 
 const RelatedProduct = ({ currentProductId }) => {
   const [relatedProducts, setRelatedProducts] = useState([]);
@@ -37,8 +38,8 @@ const RelatedProduct = ({ currentProductId }) => {
   if (error) return <div className="text-red-500">{error}</div>;
 
   return (
-    <div className="mt-16">
-      <h2 className="text-2xl font-bold mb-10 main pro-name">You may also like</h2>
+    <div
+    className="mt-16 mb-20">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         {relatedProducts.map((item) => (
           <div
@@ -67,7 +68,8 @@ const RelatedProduct = ({ currentProductId }) => {
             </div>
 
             {/* Product Details */}
-            <h3 className="text-lg font-bold pro-name mt-2">{item.name}</h3>
+            <span className="mt-6 text-gray-700">{item.colors}</span>
+            <h3 className="text-lg font-bold pro-name ">{item.name}</h3>
             <p className="text-gray-600">{item.price}</p>
             {/* <span className="pro-name">CODE: {item.article_code}</span> */}
           </div>

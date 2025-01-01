@@ -52,7 +52,7 @@ if(loading) {
 }
   return (
     <div className="p-6 bg-white">
-      <Navbar />
+      <Navbar   />
 
       {/* Product Details Section */}
       <div className="md:px-40 md:py-20 mb-6 w-full mt-10 mx-auto bg-white">
@@ -93,7 +93,7 @@ if(loading) {
                 onClick={() => setIsDescriptionOpen(!isDescriptionOpen)}
                 className="flex items-center justify-between w-full text-lg font-medium text-left text-gray-800"
               >
-                <span>Product Description</span>
+                <span className="pro-name">Product Description</span>
                 <svg
                   className={`w-5 h-5 transform transition-transform ${
                     isDescriptionOpen ? "rotate-180" : "rotate-0"
@@ -111,7 +111,7 @@ if(loading) {
               </button>
 
               {isDescriptionOpen && (
-                <p className="mt-4 text-gray-600 text-sm leading-relaxed">
+                <p className="mt-4 text-gray-800 text-md pro-name leading-relaxed">
                   {product.description}
                 </p>
               )}
@@ -123,7 +123,7 @@ if(loading) {
                 onClick={() => setIsDetailsOpen(!isDetailsOpen)}
                 className="flex items-center justify-between w-full text-lg font-medium text-left text-gray-800"
               >
-                <span>Product Details</span>
+                <span className="pro-name">Product Details</span>
                 <svg
                   className={`w-5 h-5 transform transition-transform ${
                     isDetailsOpen ? "rotate-180" : "rotate-0"
@@ -142,9 +142,10 @@ if(loading) {
 
               {isDetailsOpen && (
                 <div className="mt-4 text-gray-600 text-sm leading-relaxed">
-                  <p><strong>Material:</strong> {product.material}</p>
-                  <p><strong>Size:</strong> {product.size}</p>
-                  <p><strong>Brand:</strong> {product.brand}</p>
+                  <p className="text-xl mb-2 pro-name"><span>Manufacturer:</span>  {product.manufacturer}</p>
+                  <p className="text-xl mb-2 pro-name"><span >Country:</span>  {product.country}</p>
+                  <p className="text-xl mb-2 pro-name"><span>Article_Code </span>  {product.article_code}</p>
+                  <p className="text-xl mb-2 pro-name"><span>weight </span>  {product.weight}</p>
                 </div>
               )}
             </div>
@@ -218,6 +219,8 @@ if(loading) {
 
       {/* Related Products Section */}
       <div>
+      <h2 className="text-2xl font-bold mt-10 main pro-name">You may also like</h2>
+
         <Relatedproduct currentProductId={id} />
       </div>
     </div>

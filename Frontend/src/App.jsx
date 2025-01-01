@@ -12,11 +12,12 @@ import About from './section/About';
 import Contact from './section/Contact';
 import Collection from './components/Collection';
 import ProductPage from './components/ProductPage';
+import Favorite from './components/Favorite';
 
 
 function App() {
   return (
-    <div className=' bg-[#fdecdb]'>
+    <div className=''>
     <BrowserRouter>
       {/* <Navbar /> */}
       <Routes>
@@ -26,6 +27,7 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/product/:id" element={<ProductPage />} />
         <Route path='/brands' element={<BrandComp/>} />
+        <Route path="/favorites" element={<Favorite/>}/>
         <Route path='*' element={<Defaut/>}/>
         <Route path='/about' element={<About/>}/>
         <Route path='/contact' element={<Contact/>}/>

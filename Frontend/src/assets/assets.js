@@ -27,7 +27,7 @@ import profile from "./profile2.png"
 import cart from "./cart.jpg"
 import back from "./back.png"
 import Main from "./Main.png"
-
+import offer from "./offer.png"
 
 
 export const assets = {
@@ -37,7 +37,8 @@ export const assets = {
   // Hero3,
   // Hero4,
   about,
-  Main
+  Main,
+  offer
   
 };
 

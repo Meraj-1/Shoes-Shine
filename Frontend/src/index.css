@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Sixtyfour&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Vinyl&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Shadow&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -50,9 +51,15 @@ font-weight: 600;
     "SCAN" 45;
 }
 
-.Main {
+/* .Main {
   font-family: "Rubik Vinyl", serif;
   /* font-weight: 00; */
+  /* font-style: normal; */
+/* } */ 
+
+.Main {
+  font-family: "Londrina Shadow", serif;
+  font-weight: 600;
   font-style: normal;
 }
 
