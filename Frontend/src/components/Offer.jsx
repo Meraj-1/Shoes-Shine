@@ -49,52 +49,44 @@ const Offer = () => {
   const formatTime = (time) => (time < 10 ? `0${time}` : time);
 
   return (
-    <div
-      className="mb-20"
-      style={{
-        backgroundImage: `url(${assets.offer})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        height: '70vh', // or any other desired height
-      }}
-    >
-      <div className="flex flex-col">
-        <span className="text-white mt-40 ml-40 text-7xl pro-name">Up to 50% off</span>
-        <span className="text-white mt-10 ml-40 text-4xl pro-name">Buy One Get One Free</span>
-      </div>
-<div className="flex flex-row items-center mt-10 ml-40 mb-10 text-white text-3xl pro-name">
-  <div className="flex items-center justify-center w-16 h-16 bg-white text-black pro-name p-7 cursor-pointer transition ease-in-out duration-500 rounded-full mr-3">
-    <span >{formatTime(timeLeft.days)}d</span>
-  </div>
-  <span className="mx-2">:</span>
-  <div className="flex items-center justify-center w-16 h-16 bg-white text-black pro-name p-7 cursor-pointer transition ease-in-out duration-500 rounded-full mr-3">
-    <span >{formatTime(timeLeft.hours)}h</span>
-  </div>
-  <span className="mx-2">:</span>
-  <div className="flex items-center justify-center w-16 h-16 bg-white text-black pro-name p-7 cursor-pointer transition ease-in-out duration-500 rounded-full mr-3">
-    <span >{formatTime(timeLeft.minutes)}m</span>
-  </div>
-  <span className="mx-2">:</span>
-  <div className="flex items-center justify-center w-16 h-16 bg-white text-black pro-name p-7 cursor-pointer transition ease-in-out duration-500 rounded-full">
-    <span>{formatTime(timeLeft.seconds)}s</span>
-  </div>
-  <span className="ml-5 text-4xl font-bold text-white animate-pulse pro-name">
-  Time Remaining
-</span>
-</div>
+  <div
+  className="h-[15vh] sm:h-[20vh] md:h-[50vh] lg:h-[60vh] bg-cover bg-center"
+  style={{
+    backgroundImage: `url(${assets.offer})`,
+  }}
+>
+  <div className="flex flex-col items-start justify-center h-full px-3 sm:px-5 md:px-20">
+    {/* Offer Text */}
+    <span className="text-white mt-2 sm:mt-5 md:mt-10 text-[10px] sm:text-sm md:text-4xl font-semibold">
+      Buy One Get One Free
+    </span>
 
-      <div>
-        <span>
-            <a
-              href="/collection"
-              className="text-white mt-40 ml-40 pro-name  text-md px-4 py-2 rounded-full bg-black hover:bg-white hover:text-black transition ease-in-out duration-300"
-            >
-              Shop Now <i class="fa-solid fa-arrow-right"></i>
-            </a>
-  
-        </span>
+    {/* Countdown Timer */}
+    <div className="flex flex-col mt-2 sm:mt-5 md:mt-10">
+      <div className="flex items-center text-white text-[8px] sm:text-xs md:text-3xl">
+        {['days', 'hours', 'minutes', 'seconds'].map((unit, index) => (
+          <React.Fragment key={unit}>
+            <div className="flex items-center justify-center w-5 h-5 sm:w-8 sm:h-8 md:w-16 md:h-16 bg-white text-black rounded-full mr-1 sm:mr-2">
+              <span>{formatTime(timeLeft[unit])}</span>
+            </div>
+            {index < 3 && <span className="mx-1 sm:mx-2">:</span>}
+          </React.Fragment>
+        ))}
       </div>
+      <span className="text-xs sm:text-sm md:text-4xl mt-1 sm:mt-2 font-bold animate-pulse">
+        Time Remaining
+      </span>
     </div>
+
+    {/* Call-to-Action Button */}
+    <a
+      href="/collection"
+      className="mt-2 sm:mt-5 md:mt-10 px-2 py-1 sm:px-4 sm:py-2 text-[8px] sm:text-xs md:text-md bg-black text-white rounded-full hover:bg-white hover:text-black transition ease-in-out duration-300"
+    >
+      Shop Now <i className="fa-solid fa-arrow-right"></i>
+    </a>
+  </div>
+</div>
   );
 };
 

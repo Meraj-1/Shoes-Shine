@@ -3,16 +3,18 @@ import Navbar from '../components/Navbar';
 
 const Contact = () => {
   return (
-    <div className='p-6'>
+    <div className=''>
+      <div className='p-6'>
       <Navbar/>
-    <section className="py-20 px-10 md:px-40 text-black">
-      <h2 className="text-4xl font-bold text-center text-gray-800 mb-12 pro-name">Contact Us</h2>
+      </div>
+    <section className="py-10 md:px-20   text-black">
+      <h2 className="text-3xl font-bold text-center text-gray-800 mb-5 pro-name">Contact Us</h2>
       <hr className="border-gray-700 mb-10" />
       {/* Contact Form Section */}
       <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-12">
         {/* Contact Form */}
-        <div className="bg-white p-8 rounded-lg shadow-lg">
-          <h3 className="text-3xl font-semibold text-gray-800 mb-6">Send Us a Message</h3>
+        <div className="bg-white md:p-8 p-2 rounded-lg ">
+          <h3 className="md:text-3xl text-xl font-semibold text-gray-800 mb-6">Send Us a Message</h3>
           <form>
             <div className="mb-4">
               <label className="block text-gray-700" htmlFor="name">Name</label>
@@ -60,8 +62,8 @@ const Contact = () => {
         </div>
 
         {/* Contact Information Section */}
-        <div className="flex flex-col justify-center items-start space-y-6">
-          <h3 className="text-3xl font-semibold text-gray-800 mb-6">Our Contact Information</h3>
+        <div className="flex flex-col justify-center p-2 md:p-0 items-start space-y-6">
+          <h3 className="md:text-3xl text-2xl font-semibold text-gray-800 md:mb-6">Our Contact Information</h3>
           
           {/* Phone Number */}
           <div className="flex items-center text-lg text-gray-600">

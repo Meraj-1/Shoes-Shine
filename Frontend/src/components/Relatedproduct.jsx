@@ -39,8 +39,8 @@ const RelatedProduct = ({ currentProductId }) => {
 
   return (
     <div
-    className="mt-16 mb-20">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+    className="mb-20">
+      <div className="grid grid-cols-2 p-3 md:p-0 md:grid-cols-3 lg:grid-cols-5 gap-1">
         {relatedProducts.map((item) => (
           <div
             key={item._id}
@@ -68,9 +68,9 @@ const RelatedProduct = ({ currentProductId }) => {
             </div>
 
             {/* Product Details */}
-            <span className="mt-6 text-gray-700">{item.colors}</span>
-            <h3 className="text-lg font-bold pro-name ">{item.name}</h3>
-            <p className="text-gray-600">{item.price}</p>
+            <span className="mt-6 text-sm text-gray-700">{item.colors}</span>
+            <h3 className="md:text-lg font-bold text-sm pro-name ">{item.name}</h3>
+            <p className="text-gray-600 text-sm">{item.price}</p>
             {/* <span className="pro-name">CODE: {item.article_code}</span> */}
           </div>
         ))}

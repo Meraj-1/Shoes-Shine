@@ -57,12 +57,14 @@ const Collection = () => {
   }
 
   return (
-    <div className="bg-white p-6 mb-40">
+    <div className="bg-white mb-40">
+      <div className="p-6">
       <Navbar  favoritesCount={favorites.length}  />
-      <div className="mt-20">
+      </div>
+      <div className="md:mt-20">
         {/* Search Bar */}
-        <div className="flex justify-center mb-10">
-          <div className="relative w-1/2">
+        <div className="flex p-6 justify-center md:mb-10 ">
+          <div className="relative w-full md:w-1/2">
             <input
               type="text"
               value={searchQuery}
@@ -90,7 +92,7 @@ const Collection = () => {
         {/* Product Grid */}
         <div className="lg:px-40">
           <hr className="border-gray-700 mb-10" />
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-1 md:gap-6">
             {filteredProducts.length > 0 ? (
               filteredProducts.map((product) => (
                 <div
@@ -126,16 +128,16 @@ const Collection = () => {
                   <div className="mt-4 flex justify-between items-center">
                     <div>
                       <p className="text-gray-600 text-sm">{product.colors}</p>
-                      <h2 className="text-lg font-semibold text-gray-800">
+                      <h2 className="md:text-lg text-sm font-semibold text-gray-800">
                         {product.name}
                       </h2>
-                      <span className="text-gray-500">
+                      <span className="text-gray-500 md:text-md text-sm">
                         INR : {product.price}
                       </span>
                     </div>
                     <button onClick={() => toggleFavorite(product._id)}>
                       <i
-                        className={`fa-heart text-2xl mt-0 ${
+                        className={`fa-heart md:text-2xl mt-0 ${
                           favorites.includes(product._id)
                             ? "fa-solid text-black"
                             : "fa-regular text-gray-400"
