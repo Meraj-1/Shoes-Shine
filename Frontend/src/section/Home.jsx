@@ -30,7 +30,6 @@ const Home = () => {
         <Offer/>
         <SocialPro/>
         <CustomerSupport/>
-        
         <NewsLetter/>
 
         {/* <Article/> */}

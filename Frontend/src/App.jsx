@@ -26,7 +26,7 @@ function App() {
         {/* <Route path='/register' element={<Register/>} /> */}
         <Route path="/" element={<Home/>}/>
         <Route path="/product/:id" element={<ProductPage />} />
-        <Route path='/brands' element={<BrandComp/>} />
+        <Route path='/brands' element={<About/>} />
         <Route path="/favorites" element={<Favorite/>}/>
         <Route path='*' element={<Defaut/>}/>
         <Route path='/about' element={<About/>}/>

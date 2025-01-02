@@ -23,7 +23,7 @@ function Navbar({ favoritesCount }) {
           <hr className="w-full border-none h-[1.2px] bg-gray-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         </NavLink>
         <NavLink to="/brands" className="flex flex-col items-center gap-1 group">
-          <p>BRAND</p>
+          <p>ABOUT</p>
           <hr className="w-full border-none h-[1.2px] bg-gray-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         </NavLink>
         <NavLink to="/contact" className="flex flex-col items-center gap-1 group">

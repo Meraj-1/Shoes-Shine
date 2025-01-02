@@ -69,7 +69,7 @@ font-weight: 600;
 }
 
 
-.pro-name {
+* {
   font-family: "Mulish", serif;
   font-optical-sizing: auto;
   font-weight: 700;

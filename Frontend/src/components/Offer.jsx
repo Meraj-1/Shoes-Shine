@@ -81,7 +81,6 @@ const Offer = () => {
   <span className="ml-5 text-4xl font-bold text-white animate-pulse pro-name">
   Time Remaining
 </span>
-
 </div>
 
       <div>

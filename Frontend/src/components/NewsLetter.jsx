@@ -11,7 +11,7 @@ const NewsLetter = () => {
       
       {/* Right side - Input and Button */}
       <div className="flex items-center w-full md:w-auto">
-        <div className="flex items-center bg-white rounded-lg shadow-md w-full max-w-md">
+        <div className="flex items-center bg-white  w-full max-w-md">
           {/* Email input field with icon */}
           <div className="flex items-center pl-4 pr-2 py-2 w-full">
             <HiOutlineMail className="text-gray-500 text-2xl mr-2" />
