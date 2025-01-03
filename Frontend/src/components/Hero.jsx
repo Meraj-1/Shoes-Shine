@@ -71,7 +71,7 @@ import Navbar from "./Navbar";
 const Hero = () => {
   return (
     <div
-      className="h-[190px] sm:h-[400px]  md:h-[450px] lg:h-[700px] xl:h-[100vh] bg-cover bg-center md:p-6"
+      className="h-[20vh]  lg:h-[700px] xl:h-[100vh] bg-cover bg-center md:p-6"
       style={{ backgroundImage: `url(${assets.Main})` }}
       id="Header"
     >
