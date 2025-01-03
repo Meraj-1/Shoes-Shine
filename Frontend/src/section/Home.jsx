@@ -21,7 +21,7 @@ const Home = () => {
            transition={{ duration: 2 }}
            whileInView={{ opacity: 1, y: 0 }}
            viewport={{ once: true }}
-        className='md:text-7xl text-3xl text-center bg-black text-white md:p-10 p-3 rounded-full lg:text-5xl'>
+        className='md:text-7xl text-2xl text-center bg-black text-white md:p-10 p-3 sm:rounded-full lg:text-5xl'>
         Explore Our Latest Trends
         <button to="/collections"  className='text-xl mt-3 md:text-3xl  sm:p-3 px-3 py-2 ml-5 md:ml-10 bg-black text-white pro-name rounded-full hover:text-black hover:bg-white  transition duration-500 ease-in-out'><a href="/collection">Shop Now <i class="fa-solid fa-arrow-right"></i></a></button>
         </motion.span></div>

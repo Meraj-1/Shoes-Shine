@@ -28,6 +28,7 @@ import cart from "./cart.jpg"
 import back from "./back.png"
 import Main from "./Main.png"
 import offer from "./offer.png"
+import menu_icon from "./menu_icon.png"
 
 
 export const assets = {
@@ -47,7 +48,8 @@ export const logo = {
   menu,
   profile,
   cart,
-  back
+  back,
+  menu_icon
 }
 
 

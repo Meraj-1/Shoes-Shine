@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+// import React from 'react'
+import { assets } from "../assets/assets";
 import { Link, NavLink } from "react-router-dom";
 
 function Navbar({ favoritesCount }) {
@@ -74,15 +76,15 @@ function Navbar({ favoritesCount }) {
           </div>
         </div>
 
-        {/* Cart Icon */}
+        {/* Cart Icon
         <Link to="/cart" className="relative">
           <i className="fas fa-shopping-cart text-xl"></i>
-        </Link>
+        </Link> */}
 
         {/* Mobile Menu Toggle */}
         <img
           onClick={() => setVisible(true)}
-          src="/menu-icon.png"
+          src={assets.menu_icon}
           className="w-6 cursor-pointer sm:hidden"
           alt="Menu"
         />
