@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import RelatedShimmer from "./RelatedShimmer";
 // import motion from "framer-motion"
 
 const RelatedProduct = ({ currentProductId }) => {
@@ -34,7 +35,7 @@ const RelatedProduct = ({ currentProductId }) => {
     }, 100); // Delay ensures navigation completes
   };
 
-  if (loading) return <div>Loading related products...</div>;
+  if (loading) return <RelatedShimmer/>;
   if (error) return <div className="text-red-500">{error}</div>;
 
   return (

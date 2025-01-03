@@ -30,18 +30,22 @@ const Shimmer = () => (
 <div className="lg:px-40">
 <hr className="border-gray-700 mb-10" />
 </div>
-  <div className="flex flex-wrap mt-20 px-40 justify-center">
-    
-    {Array(10).fill().map((_, index) => (
-      <div key={index} className="border border-gray-300 p-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/3  bg-white shadow-md rounded-lg animate-pulse">
-        <div className="bg-gray-300 h-48 w-full rounded-t-lg"></div>
-        <div className="mt-2">
-          <div className="bg-gray-300 h-6 w-3/4 mb-2"></div>
-          <div className="bg-gray-300 h-4 w-1/2"></div>
-        </div>
+<div className="flex flex-wrap mt-20 px-40 justify-center">
+  {Array(10).fill().map((_, index) => (
+    <div key={index} className="border border-gray-300 p-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/3 bg-white shadow-md rounded-lg animate-pulse">
+      {/* Image Placeholder */}
+      <div className="bg-gray-300 h-48 w-full rounded-t-lg"></div>
+
+      {/* Text Placeholders */}
+      <div className="mt-2">
+        <div className="bg-gray-300 h-6 w-3/4 mb-2"></div>
+        <div className="bg-gray-300 h-4 w-1/2 mb-4"></div>
+        {/* Button Placeholder */}
+        <div className="bg-gray-300 h-8 w-2/5 mx-auto rounded-full"></div>
       </div>
-    ))}
-  </div>
+    </div>
+  ))}
+</div>
   </div>
 );
 
