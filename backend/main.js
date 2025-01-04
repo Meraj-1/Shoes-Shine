@@ -79,9 +79,9 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: 'https://shoes-shine-th6dq.vercel.app/'
-  //            ,  // Frontend running on this port
-  // methods: 'GET, POST, PUT, DELETE',
+  origin: 'https://frontend-pearl-two-61.vercel.app', // Allow requests only from your frontend
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed HTTP methods
+    allowedHeaders: ['Content-Type', 'Authorization'] // Specify allowed headers
 }));
 
 app.use(express.json());
