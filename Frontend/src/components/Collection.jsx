@@ -15,7 +15,7 @@ const Collection = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("https://backend-b7nd0inq9-meraj-1s-projects.vercel.app ");
+        const response = await axios.get("https://backend-b7nd0inq9-meraj-1s-projects.vercel.app/api/products ");
         setProducts(response.data);
         setFilteredProducts(response.data);
         setLoading(false);

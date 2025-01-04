@@ -79,7 +79,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: 'https://frontend-pearl-two-61.vercel.app/',  // Frontend running on this port
+  origin: 'https://frontend-jvtjqr065-meraj-1s-projects.vercel.app/',  // Frontend running on this port
   methods: 'GET, POST, PUT, DELETE',
 }));
 

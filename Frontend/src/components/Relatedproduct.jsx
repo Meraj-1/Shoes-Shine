@@ -13,7 +13,7 @@ const RelatedProduct = ({ currentProductId }) => {
   useEffect(() => {
     const fetchRelatedProducts = async () => {
       try {
-        const response = await axios.get("https://backend-b7nd0inq9-meraj-1s-projects.vercel.app");
+        const response = await axios.get("https://backend-b7nd0inq9-meraj-1s-projects.vercel.app/api/products");
         const filteredProducts = response.data.filter(
           (item) => item._id !== currentProductId
         );
