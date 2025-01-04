@@ -7,12 +7,34 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: 'http://localhost:5173',  // Frontend running on this port
+  origin: 'http://localhost:3000',  // Frontend running on this port
   methods: 'GET, POST, PUT, DELETE',
   allowedHeaders: 'Content-Type, Authorization'
 }));
 
 app.use(express.json());
+
+const mongoose = require('mongoose');
+
+const mongoUrl = process.env.MONGO_URL;
+
+try {
+  mongoose.connect(mongoUrl, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    serverSelectionTimeoutMS: 50000,  // Increase timeout duration
+    socketTimeoutMS: 45000
+  }).then(() => {
+      console.log('Connected to MongoDB');
+  }).catch((err) => {
+      console.error('MongoDB connection error:', err);
+  });
+  
+} catch (error) {
+  console.error('Error occurred:', error.message);
+  res.status(500).send('Internal Server Error');
+}
+
 
 // MongoDB Connection URI
 const uri = process.env.MONGO_URL;
@@ -40,6 +62,8 @@ connectDB();
 app.get("/api/products", async (req, res) => {
   try {
     const products = await db.collection("products_collection").find({}).toArray();
+    // console.log(products);
+    
     res.status(200).json(products);
   } catch (error) {
     console.error("Error fetching products:", error);
@@ -63,6 +87,10 @@ app.get("/api/products/:id", async (req, res) => {
     console.error("Error fetching product:", error);
     res.status(500).json({ message: "Server error" });
   }
+});
+
+app.get('/', (req, res) => {
+  res.send('Welcome to the backend!');
 });
 
 // // Start the server
