@@ -79,7 +79,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: 'https://frontend-pearl-two-61.vercel.app/'
+  origin: 'https://shoes-shine-th6dq.vercel.app/'
   //            ,  // Frontend running on this port
   // methods: 'GET, POST, PUT, DELETE',
 }));
