@@ -78,13 +78,24 @@ const cors = require("cors");
 const app = express();
 
 // Middleware
-app.use(cors({
-  origin: 'https://frontend-pearl-two-61.vercel.app', // Allow requests only from your frontend
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed HTTP methods
-    allowedHeaders: ['Content-Type', 'Authorization'] // Specify allowed headers
-}));
+// const allowedOrigins = [
+//   'https://frontend-pearl-two-61.vercel.app',
+//   'https://shoes-shine-th6dq.vercel.app',
+//   'http://localhost:5173/'
+// ];
 
-app.use(express.json());
+// app.use(cors({
+//   origin: (origin, callback) => {
+//       if (!origin || allowedOrigins.includes(origin)) {
+//           callback(null, true);
+//       } else {
+//           callback(new Error('Not allowed by CORS'));
+//       }
+//   },
+//   methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//   allowedHeaders: ['Content-Type', 'Authorization']
+// }));
+app.use(cors())
 
 // MongoDB connection variables
 const uri = process.env.MONGO_URL;
