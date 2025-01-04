@@ -79,8 +79,8 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: 'https://frontend-jvtjqr065-meraj-1s-projects.vercel.app/',  // Frontend running on this port
-  methods: 'GET, POST, PUT, DELETE',
+  origin: 'https://frontend-945tcc5mc-meraj-1s-projects.vercel.app',  // Frontend running on this port
+  // methods: 'GET, POST, PUT, DELETE',
 }));
 
 app.use(express.json());
