@@ -6,10 +6,22 @@ const cors = require("cors");
 const app = express();
 
 // Middleware
+const allowedOrigins = [
+  "http://localhost:5173", // Development origin
+  "https://shoes-shine-xwrd.vercel.app", // Production frontend origin
+];
+
 const corsOptions = {
-  origin: process.env.NODE_ENV === 'production' ? 'https://shoes-shine-xwrd.vercel.app' : '*',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type'],
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      // Allow requests with no origin (like mobile apps or curl requests)
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type"],
 };
 app.use(cors(corsOptions));
 
