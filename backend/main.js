@@ -1,12 +1,12 @@
 const express = require("express");
-const { MongoClient } = require("mongodb");
+const { MongoClient, ObjectId } = require("mongodb");
 require("dotenv").config();
 const cors = require("cors");
 
 const app = express();
 
 // Middleware
-app.use(cors())
+app.use(cors());
 
 // MongoDB connection variables
 const uri = process.env.MONGO_URL;
@@ -46,18 +46,28 @@ app.get("/api/products", async (req, res) => {
   }
 });
 
-
-// // Route to fetch a single product by ID
+// Route to fetch a single product by ID
 app.get("/api/products/:id", async (req, res) => {
   try {
     const productId = req.params.id;
+
+    // Check if the productId is a valid ObjectId
     if (!ObjectId.isValid(productId)) {
       return res.status(400).json({ message: "Invalid product ID" });
     }
+
+    // Ensure db is initialized before attempting to query the collection
+    const db = await connectDB(); // Make sure to get the connected db
+
+    // Attempt to find the product in the database
     const product = await db.collection("products_collection").findOne({ _id: new ObjectId(productId) });
+
+    // If product not found, return a 404 error
     if (!product) {
       return res.status(404).json({ message: "Product not found" });
     }
+
+    // If product found, return the product data
     res.json(product);
   } catch (error) {
     console.error("Error fetching product:", error);
@@ -65,14 +75,13 @@ app.get("/api/products/:id", async (req, res) => {
   }
 });
 
-
+// Default route
 app.get('/', (req, res) => {
   res.send('Welcome to the backend!');
 });
 
-// // Start the server
+// Start the server
 const PORT = 4000;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
-
