@@ -41,7 +41,7 @@ const Collection = () => {
   };
 
   const handleProductClick = (id) => {
-    navigate(`/products/${id}`);
+    navigate(`https://shoes-shine.vercel.app/api/products/${id}`);
   };
 
   const toggleFavorite = (id) => {
