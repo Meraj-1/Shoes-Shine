@@ -25,7 +25,7 @@ function App() {
         <Route path='/sign-in' element={<Login/>} />
         {/* <Route path='/register' element={<Register/>} /> */}
         <Route path="/" element={<Home/>}/>
-        <Route path="/product/:id" element={<ProductPage />} />
+        <Route path="/products/:id" element={<ProductPage />} />
         <Route path='/brands' element={<About/>} />
         <Route path="/favorites" element={<Favorite/>}/>
         <Route path='*' element={<Defaut/>}/>
