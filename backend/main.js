@@ -8,7 +8,7 @@ const app = express();
 // Middleware
 const allowedOrigins = [
   "http://localhost:5173", // Development origin
-  "https://shoes-shine-xwrd.vercel.app", // Production frontend origin
+  "shoes-shine-xwrd.vercel.app", // Production frontend origin
 ];
 
 const corsOptions = {
