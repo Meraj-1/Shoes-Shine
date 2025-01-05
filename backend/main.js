@@ -8,7 +8,7 @@ const app = express();
 // Middleware
 const allowedOrigins = [
   "http://localhost:5173", // Development origin
-  "shoes-shine-xwrd.vercel.app", // Production frontend origin
+  "https://shoes-shine-xwrd.vercel.app", // Production frontend origin
 ];
 
 const corsOptions = {
@@ -24,6 +24,7 @@ const corsOptions = {
   allowedHeaders: ["Content-Type"],
 };
 app.use(cors(corsOptions));
+
 
 // MongoDB connection variables
 const uri = process.env.MONGO_URL;
