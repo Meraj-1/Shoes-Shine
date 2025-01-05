@@ -41,7 +41,7 @@ const Collection = () => {
   };
 
   const handleProductClick = (id) => {
-    navigate(`/product/${id}`);
+    navigate(`/products/${id}`);
   };
 
   const toggleFavorite = (id) => {
