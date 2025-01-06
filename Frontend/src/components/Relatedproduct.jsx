@@ -29,7 +29,7 @@ const RelatedProduct = ({ currentProductId }) => {
   }, [currentProductId]);
 
   const handleProductClick = (id) => {
-    navigate(`/products/${id}`);
+    navigate(`/products/${product._id}`);
     setTimeout(() => {
       window.scrollTo({ top: 0, behavior: "smooth" }); // Ensure smooth scroll after navigation
     }, 100); // Delay ensures navigation completes
