@@ -1,6 +1,6 @@
 import React from "react";
 import { assets, brand } from "../assets/assets"; // Assuming your images are in assets
-import Title from "../components/Title";
+// import Title from "../components/Title";
 import Navbar from "../components/Navbar";
 
 const BrandSlider = () => {
