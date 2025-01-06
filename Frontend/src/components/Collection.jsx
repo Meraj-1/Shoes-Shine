@@ -106,26 +106,28 @@ const Collection = () => {
                     // onClick={() => handleProductClick(product._id)}
                     
                   >
-                    <NavLink to={`/products/${id}`}>
-                    <img
-                      className="w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0"
-                      src={
-                        Array.isArray(product.images) && product.images[0]
-                          ? product.images[0]
-                          : "default-image.jpg"
-                      }
-                      alt={product.name}
-                    />
-                    <img
-                      className="absolute top-0 left-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                      src={
-                        Array.isArray(product.images) && product.images[1]
-                          ? product.images[1]
-                          : "default-image.jpg"
-                      }
-                      alt={product.name}
-                    />
-                      </NavLink>
+                <NavLink to={`/products/${id}`}>
+  {product && Array.isArray(product.images) ? (
+    <>
+      <img
+        className="w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0"
+        src={product.images[0] || "default-image.jpg"}
+        alt={product.name || "Default Name"}
+      />
+      <img
+        className="absolute top-0 left-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+        src={product.images[1] || "default-image.jpg"}
+        alt={product.name || "Default Name"}
+      />
+    </>
+  ) : (
+    <img
+      className="w-full h-full object-cover"
+      src="default-image.jpg"
+      alt="Default Name"
+    />
+  )}
+</NavLink>
 
                   </div>
 
