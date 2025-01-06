@@ -19,7 +19,7 @@ const ProductPage = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.get(`${config.BACKEND_URL}/products/${id})`);
+        const response = await axios.get(`${config.BACKEND_URL}/products/${id}`);
         setProduct(response.data);
         setLoading(false);
       } catch (err) {
