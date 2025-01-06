@@ -1,20 +1,8 @@
 {
-  "build": {
-    "command": "cd Frontend && npm install && npm run build",
-    "outputDirectory": "Frontend/dist"
-  },
   "rewrites": [
     {
-      "source": "/api/:path*", 
-      "destination": "/api/:path*"
-    },
-    {
-      "source": "/product/:id", 
-      "destination": "/"
-    },
-    {
-      "source": "/:path*", 
-      "destination": "/"
+      "source": "/:path*",
+      "destination": "/index.html"
     }
   ]
 }
