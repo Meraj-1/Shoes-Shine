@@ -4,27 +4,27 @@ require("dotenv").config();
 const cors = require("cors");
 
 const app = express();
-
+const { ObjectId } = require('mongodb');
 // Middleware
-// const allowedOrigins = [
-//   "http://localhost:5173", // Development origin
-//   "https://shoes-shine-xwrd.vercel.app", // Production frontend origin
-// ];
+const allowedOrigins = [
+  "http://localhost:5173", // Development origin
+  "https://shoes-shine-xwrd.vercel.app", // Production frontend origin
+];
 
-// const corsOptions = {
-//   origin: (origin, callback) => {
-//     if (!origin || allowedOrigins.includes(origin)) {
-//       // Allow requests with no origin (like mobile apps or curl requests)
-//       callback(null, true);
-//     } else {
-//       callback(new Error("Not allowed by CORS"));
-//     }
-//   },
-//   methods: ["GET", "POST", "PUT", "DELETE"],
-//   allowedHeaders: ["Content-Type"],
-// };
-// app.use(cors(corsOptions));
-app.use(cors());
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      // Allow requests with no origin (like mobile apps or curl requests)
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type"],
+};
+app.use(cors(corsOptions));
+// app.use(cors());
 
 
 // MongoDB connection variables
@@ -64,12 +64,35 @@ app.get("/api/products", async (req, res) => {
   }
 });
 
+// app.get("/api/products/:id", async (req, res) => {
+//   try {
+//     const productId = req.params.id;
+
+//     // Check if the productId is a valid ObjectId
+//     if (!ObjectId.isValid(productId)) {
+//       return res.status(400).json({ message: "Invalid product ID" });
+//     }
+
+//     const db = await connectDB();
+//     const product = await db.collection("products_collection").findOne({ _id: new ObjectId(productId) });
+
+//     if (!product) {
+//       return res.status(404).json({ message: "Product not found" });
+//     }
+
+//     res.json(product);
+//   } catch (error) {
+//     console.error("Error fetching product:", error);
+//     res.status(500).json({ message: "Server error" });
+//   }
+// });
+
 app.get("/api/products/:id", async (req, res) => {
   try {
     const productId = req.params.id;
 
-    // Check if the productId is a valid ObjectId
     if (!ObjectId.isValid(productId)) {
+      console.error(`Invalid product ID: ${productId}`);
       return res.status(400).json({ message: "Invalid product ID" });
     }
 
@@ -77,6 +100,7 @@ app.get("/api/products/:id", async (req, res) => {
     const product = await db.collection("products_collection").findOne({ _id: new ObjectId(productId) });
 
     if (!product) {
+      console.error(`Product not found for ID: ${productId}`);
       return res.status(404).json({ message: "Product not found" });
     }
 
@@ -86,6 +110,7 @@ app.get("/api/products/:id", async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 });
+
 
 app.get('/', (req, res) => {
   res.send('Welcome to the backend!');
