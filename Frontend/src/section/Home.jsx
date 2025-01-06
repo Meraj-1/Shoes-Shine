@@ -141,7 +141,7 @@ const Home = () => {
           </button>
         </motion.span>
       </div>
-      <RelatedProduct />
+      {/* <RelatedProduct /> */}
       <Offer />
       <SocialPro />
       <CustomerSupport />
