@@ -11,20 +11,28 @@ const allowedOrigins = [
   "https://shoes-shine-xwrd.vercel.app", // Production frontend origin
 ];
 
+// const corsOptions = {
+//   origin: (origin, callback) => {
+//     if (!origin || allowedOrigins.includes(origin)) {
+//       // Allow requests with no origin (like mobile apps or curl requests)
+//       callback(null, true);
+//     } else {
+//       callback(new Error("Not allowed by CORS"));
+//     }
+//   },
+//   methods: ["GET", "POST", "PUT", "DELETE"],
+//   allowedHeaders: ["Content-Type"],
+// };
+// app.use(cors(corsOptions));
+// // app.use(cors());
+
 const corsOptions = {
-  origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
-      // Allow requests with no origin (like mobile apps or curl requests)
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
+  origin: '*',  // This will allow all origins
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type"],
 };
+
 app.use(cors(corsOptions));
-// app.use(cors());
 
 
 // MongoDB connection variables
