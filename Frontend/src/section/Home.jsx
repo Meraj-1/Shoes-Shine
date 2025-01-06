@@ -99,7 +99,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
-import RelatedProduct from "../components/Relatedproduct";
+// import RelatedProduct from "../components/Relatedproduct";
 import { motion } from "framer-motion";
 import Offer from "../components/Offer";
 import CustomerSupport from "../components/Customer";
