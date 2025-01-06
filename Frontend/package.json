@@ -10,6 +10,10 @@
     "postinstall": "chmod +x ./node_modules/.bin/vite"
   },
   "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^6.7.2",
+    "@fortawesome/free-regular-svg-icons": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "axios": "^1.7.9",
     "dotenv": "^16.4.7",
     "font-awesome": "^4.7.0",

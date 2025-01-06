@@ -220,7 +220,7 @@ const Offer = () => {
     "https://neemans.com/cdn/shop/files/Web_moblie_Banner_750X1100_New_Year.jpg";
   const defaultBackgroundImage = "https://neemans.com/cdn/shop/files/Web_Banner_1920X800_New_Year.jpg?v=1735151299&width=1300";
 
-  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 1082);
+  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 100);
 
   useEffect(() => {
     const handleResize = () => {
@@ -233,7 +233,7 @@ const Offer = () => {
 
   return (
     <div
-      className={'h-[80vh] sm:h-[120vh] md:h-[150vh] lg:h-[60vh] xl:h-[100vh]  bg-cover bg-center'}
+      className={'h-[100vh] sm:h-[130vh] md:h-[190vh] lg:h-[50vh] xl:h-[80vh] bg-cover bg-center'}
       style={{
         backgroundImage: `url(${isLargeScreen ? defaultBackgroundImage : mdBackgroundImage})`,
       }}
