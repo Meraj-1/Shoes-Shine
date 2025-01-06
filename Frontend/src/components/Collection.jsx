@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Shimmer from "./Shimmer";
 // import { conf } from '../../config';
@@ -106,7 +106,7 @@ const Collection = () => {
                     // onClick={() => handleProductClick(product._id)}
                     
                   >
-                <NavLink to={`/products/${id}`}>
+                <Link to={`/products/${product._id}`}>
   {product && Array.isArray(product.images) ? (
     <>
       <img
@@ -127,7 +127,7 @@ const Collection = () => {
       alt="Default Name"
     />
   )}
-</NavLink>
+</Link>
 
                   </div>
 
