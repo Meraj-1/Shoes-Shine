@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Shimmer from "./Shimmer";
 // import { conf } from '../../config';
@@ -41,9 +41,9 @@ const Collection = () => {
     setSearchQuery(e.target.value);
   };
 
-  const handleProductClick = (id) => {
-    navigate(`/products/${id}`);
-  };
+  // const handleProductClick = (id) => {
+  //   navigate(`/products/${id}`);
+  // };
 
   const toggleFavorite = (id) => {
     setFavorites((prevFavorites) =>
@@ -103,8 +103,10 @@ const Collection = () => {
                   {/* Product Image */}
                   <div
                     className="relative overflow-hidden"
-                    onClick={() => handleProductClick(product._id)}
+                    // onClick={() => handleProductClick(product._id)}
+                    
                   >
+                    <NavLink to={`/products/${id}`}>
                     <img
                       className="w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0"
                       src={
@@ -123,6 +125,8 @@ const Collection = () => {
                       }
                       alt={product.name}
                     />
+                      </NavLink>
+
                   </div>
 
                   {/* Product Details */}
