@@ -46,7 +46,7 @@ const RelatedProduct = ({ currentProductId }) => {
           <div
             key={item._id}
             className="cursor-pointer"
-            onClick={() => handleProductClick(item._id)} // Navigate to product page
+            onClick={() => handleProductClick(`/products/${product._id}`)} // Navigate to product page
           >
             {/* Product Image */}
             <div className="relative overflow-hidden aspect-square group">
