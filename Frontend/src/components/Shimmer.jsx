@@ -8,7 +8,7 @@ const Shimmer = () => {
   return (
     <div className="p-6">
          <Navbar />
-         <div className="flex justify-center mt-40 mb-10">
+         {/* <div className="flex justify-center mt-40 mb-10">
          <div className="relative w-1/2">
            <input
           type="text"
@@ -30,9 +30,9 @@ const Shimmer = () => {
           />
         </svg>
       </div>
-    </div>
+    </div> */}
     <div className="lg:px-40">
-    <hr className="border-gray-700 mb-10" />
+    {/* <hr className="border-gray-700 mb-10" /> */}
     </div>
     <div className="grid place-items-center h-screen">
           <motion.div
