@@ -14,7 +14,7 @@ const RelatedProduct = ({ currentProductId }) => {
   useEffect(() => {
     const fetchRelatedProducts = async () => {
       try {
-        const response = await axios.get(`${config.BACKEND_URL}/products`);
+        const response = await axios.get('https://shoes-shine.vercel.app/api/products');
         const filteredProducts = response.data.filter(
           (item) => item._id !== currentProductId
         );
