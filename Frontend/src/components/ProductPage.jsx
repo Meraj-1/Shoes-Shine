@@ -4,7 +4,7 @@ import axios from "axios";
 import Navbar from "./Navbar";
 import Relatedproduct from "./Relatedproduct";
 import Shimmer1 from "./Shimmmer1";
-
+import {config} from '../config/config'
 const ProductPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ const ProductPage = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.get(`https://shoes-shine.vercel.app/api/products/${id}`);
+        const response = await axios.get(`${config.BACKEND_URL}/products/${id}`);
         setProduct(response.data);
         setLoading(false);
       } catch (err) {
