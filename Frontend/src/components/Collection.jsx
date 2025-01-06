@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Shimmer from "./Shimmer";
+import { config } from '../config/config';
 import Navbar from "./Navbar";
 
 const Collection = () => {
@@ -15,7 +16,7 @@ const Collection = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('https://shoes-shine.vercel.app/api/products');
+        const response = await axios.get(`${config.BACKEND_URL}/products`);
         setProducts(response.data);
         setFilteredProducts(response.data);
         setLoading(false);

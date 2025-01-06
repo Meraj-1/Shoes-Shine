@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import RelatedShimmer from "./RelatedShimmer";
 // import motion from "framer-motion"
+import { config } from '../config/config';
 
 const RelatedProduct = ({ currentProductId }) => {
   const [relatedProducts, setRelatedProducts] = useState([]);
@@ -13,7 +14,7 @@ const RelatedProduct = ({ currentProductId }) => {
   useEffect(() => {
     const fetchRelatedProducts = async () => {
       try {
-        const response = await axios.get("https://shoes-shine.vercel.app/api/products");
+        const response = await axios.get(`${config.BACKEND_URL}/products`);
         const filteredProducts = response.data.filter(
           (item) => item._id !== currentProductId
         );
