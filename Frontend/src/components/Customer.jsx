@@ -16,7 +16,7 @@ const Customer = () => {
             Start Chat
           </button>
         </div>
-
+oon
         {/* Phone Support */}
         <div className="bg-white md:p-6 ">
           <AiOutlinePhone className="md:text-5xl text-3xl  text-black mb-4" />

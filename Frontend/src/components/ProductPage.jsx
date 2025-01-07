@@ -55,7 +55,7 @@ if(loading) {
       <Navbar   />
 
       {/* Product Details Section */}
-      <div className="md:px-40 md:py-20 mb-6 w-full mt-10 mx-auto bg-white">
+      <div className="md:px-10 md:py-20 mb-6 w-full mt-10 mx-auto bg-white">
       <hr className="border-gray-700 mb-10" />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -77,12 +77,12 @@ if(loading) {
           </div>
 
           {/* Product Details */}
-          <div className="flex flex-col space-y-4 h-full">
+          <div className="flex flex-col space-y-5 h-full">
             <h1 className="text-4xl font-extrabold pro-name text-gray-900">{product.name}</h1>
             <span className="text-gray-500">{product.colors}</span>
             <span className="text-2xl font-semibold">{product.price}</span>
-            <div className="flex items-center space-x-6">
-              <button className="px-40 py-4 bg-black text-white rounded-lg">
+            <div className="flex items-center">
+              <button className="md:px-90 px-20 py-2 md:py-1 bg-black text-white rounded-lg">
                 Add to Cart
               </button>
             </div>
@@ -187,7 +187,7 @@ if(loading) {
 
       {/* FAQs Section */}
       <h2 className="text-4xl font-bold p-6 pro-name">FAQs</h2>
-      <div className="bg-gray-100 p-6 rounded-lg">
+      <div className="bg-gray-100 p-4 rounded-lg">
         {[
           "What is the return policy?",
           "How do I track my order?",
