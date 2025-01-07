@@ -6,10 +6,10 @@ const cors = require("cors");
 const app = express();
 
 // Middleware
-const allowedOrigins = [
-  "http://localhost:5173", // Development origin
-  "https://shoes-shine-xwrd.vercel.app", // Production frontend origin
-];
+// const allowedOrigins = [
+//   "http://localhost:5173", // Development origin
+//   "https://shoes-shine-xwrd.vercel.app", // Production frontend origin
+// ];
 
 // const corsOptions = {
 //   origin: (origin, callback) => {
@@ -71,6 +71,7 @@ app.get("/api/products", async (req, res) => {
     res.status(500).json({ message: "Error fetching products" });
   }
 });
+
 
 app.get("/api/products/:id", async (req, res) => {
   try {
