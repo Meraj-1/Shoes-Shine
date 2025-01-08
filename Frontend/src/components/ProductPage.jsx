@@ -4,7 +4,6 @@ import axios from "axios";
 import Navbar from "./Navbar";
 import Relatedproduct from "./Relatedproduct";
 import Shimmer1 from "./Shimmmer1";
-import {config} from '../config/config'
 const ProductPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();

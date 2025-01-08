@@ -11,7 +11,6 @@ const Collection = () => {
   const [searchQuery, setSearchQuery] = useState(""); // Search input value
   const [favorites, setFavorites] = useState([]); // Favorite products
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -31,8 +30,8 @@ const Collection = () => {
   useEffect(() => {
     const filtered = products.filter(
       (product) =>
-        product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        product.name.toLowerCase().includes(searchQuery.toLowerCase())
+        product.name.toLowerCase().includes(searchQuery.toLowerCase()) 
+        // product.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
     setFilteredProducts(filtered);
   }, [searchQuery, products]);

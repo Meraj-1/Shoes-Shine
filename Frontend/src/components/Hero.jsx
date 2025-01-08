@@ -56,7 +56,8 @@ const Hero = () => {
 
         {/* Shop Now Button */}
         <button className="md:mt-5">
-          <a href="https://shoes-shine.vercel.app/api/products">
+          {/* <a href="https://shoes-shine.vercel.app/api/products"> */}
+          <a href="/collection">
             <motion.span
               initial={{ opacity: 0, y: 10 }}
               transition={{ duration: 2 }}
