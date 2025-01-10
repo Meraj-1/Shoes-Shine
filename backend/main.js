@@ -3,6 +3,7 @@ const { MongoClient, ObjectId } = require("mongodb");
 require("dotenv").config();
 const cors = require("cors");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 const app = express();
 
@@ -80,30 +81,101 @@ app.get('/', (req, res) => {
 
 
 // / Create Account
-app.post("/api/auth/createaccount", async (req, res) => {
-  const { email, password } = req.body;
 
+// 1. Create Account
+app.post("/api/auth/createaccount", async (req, res) => {
+  const { name, email, password } = req.body;
   try {
     const db = await connectDB();
     const existingUser = await db.collection("users").findOne({ email });
-
     if (existingUser) {
       return res.status(400).json({ message: "Email already in use" });
     }
-
-    // Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
-
-    // Insert new user into the database
-    const newUser = { email, password: hashedPassword };
+    const newUser = { name, email, password: hashedPassword };
     const result = await db.collection("users").insertOne(newUser);
-
     res.status(201).json({ message: "Account created successfully", userId: result.insertedId });
   } catch (error) {
     console.error("Error creating account:", error);
     res.status(500).json({ message: "Server error" });
   }
 });
+
+// 2. Login
+app.post("/api/auth/login", async (req, res) => {
+  const { email, password } = req.body;
+  try {
+    const db = await connectDB();
+    const user = await db.collection("users").findOne({ email });
+  if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (!isPasswordValid) {
+      return res.status(401).json({ message: "Invalid email or password" });
+    }
+    const token = jwt.sign({ userId: user._id }, process.env.SECRET_KEY, { expiresIn: "1h" });
+    res.status(200).json({ message: "Login successful", token });
+  } catch (error) {
+    console.error("Error during login:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
+
+// app.post("/api/auth/createaccount", async (req, res) => {
+//   const { name ,email, password } = req.body;
+
+//   try {
+//     const db = await connectDB();
+//     const existingUser = await db.collection("users").findOne({ email });
+
+//     if (existingUser) {
+//       return res.status(400).json({ message: "Email already in use" });
+//     }
+
+//     // Hash password
+//     const hashedPassword = await bcrypt.hash(password, 10);
+
+//     // Insert new user into the database
+//     const newUser = { name,email, password: hashedPassword };
+//     const result = await db.collection("users").insertOne(newUser);
+
+//     res.status(201).json({ message: "Account created successfully", userId: result.insertedId });
+//   } catch (error) {
+//     console.error("Error creating account:", error);
+//     res.status(500).json({ message: "Server error" });
+//   }
+// });
+
+// app.post("/api/auth/login", async (req, res) => {
+//   const { email, password } = req.body;
+
+//   try {
+//     const db = await connectDB();
+//     const user = await db.collection("users").findOne({ email });
+
+//     if (!user) {
+//       return res.status(404).json({ message: "User not found" });
+//     }
+
+//     const isPasswordValid = await bcrypt.compare(password, user.password);
+
+//     if (!isPasswordValid) {
+//       return res.status(401).json({ message: "Invalid email or password" });
+//     }
+
+//     // Generate JWT token
+//     const token = jwt.sign({ userId: user._id }, SECRET_KEY, { expiresIn: "1h" });
+
+//     res.status(200).json({ message: "Login successful", token });
+//   } catch (error) {
+//     console.error("Error during login:", error);
+//     res.status(500).json({ message: "Server error" });
+//   }
+// });
+
+
 
 // Start the server
 const PORT = 4000;
